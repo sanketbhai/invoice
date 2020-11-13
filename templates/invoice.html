@@ -1,0 +1,256 @@
+<html>
+    
+    
+<head>
+    <!--<meta http-equiv="content-type" content="text/html; charset=utf-8" />-->
+    <style>
+        
+        #uppernavigation{
+            background-color: black;
+            box-shadow: 1px 1px #888888;
+        
+            padding-left: 30px;
+            padding-right: 30px;
+        
+            padding-bottom: 4px;
+            padding-top: 10px;
+            height: 35px;
+            
+        }
+        #user{
+            background-color: black;
+            color: white;
+            width: 40px;
+        }
+        tr{
+            height: 30px;
+            
+        }
+        
+        table{
+            width: 100%;
+        }
+        thead{
+            color: black;
+            background-color:white;
+            
+        }
+        td{
+            text-align: center;
+            
+        }
+        
+        #content{
+            box-shadow: 1px 1px #888888;
+            background-color: white;
+            padding: 40px;
+        
+            border: 3px solid black;
+        }
+        
+        body{
+            background-color: #ADADAD;
+        
+        }
+        
+        
+        
+        input{
+            border: none;
+        }
+        
+        
+        
+        input{
+            color: red;
+        }
+        
+        tfoot{
+            background-color: white;
+            color: black;
+        }
+        
+        #navigation{
+            background-color: black;
+            box-shadow: 1px 1px #888888;
+        
+            padding-left: 40px;
+            padding-right: 40px;
+        
+            padding-bottom: 8px;
+            padding-top: 8px;
+        }
+        
+        button {
+            margin: 3px;
+            padding: 5px;
+            border: none;
+            -webkit-border-radius: 5px; 
+            -moz-border-radius: 5px; 
+            border-radius: 5px; 
+            background-color: orange;
+            font-size: 16px;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="uppernavigation" >
+     <div style="float:right">
+       <button onclick="window.print()">Print INVOICE</button>
+        <button id="download">download as pdf</button>
+    </div>
+    <form action="/show_invoice" method="get" >
+      <input type="text" id="user" name="user" value="{{user}}" readonly >
+      <button type="submit">show invoice</button>
+    </form>
+   
+</div>
+    
+<div id="content">
+        
+    
+<span style="float:left">
+
+
+<b>Provider</b><br>
+<input type="text" placeholder="company"id="provider"><br><br />
+<input type="text" placeholder="representative" id="provider_rep"><br><br />
+<textarea placeholder="info" id="provider_info"></textarea> 
+ 
+</span>
+<span style="float:right">
+<b>Customer</b><br>
+<input type="text" placeholder="name" id="Customer_name">
+<br><textarea placeholder="post_address"id="Customer_address"></textarea>
+</span>
+<br />
+<br />
+<br /> <br /><br /><br /><br /><hr /><br />
+  <b>Invoice No. : </b><b id="invoice_no">{{data}}</b><br>
+  <b>Date : </b><input type="date" id="date"><br>
+<br />
+
+
+
+
+<hr />
+<center>
+
+<h2>INVOICE</h2>
+</center>
+<hr /><br />
+
+    <table border="1">
+    <col style="width:10%">
+    <col style="width:50%">
+    <col style="width:10%">
+    <col style="width:10%">
+    <col style="width:10%">
+        
+    <thead>
+        <tr id='headrow'>
+            <th>sr.no</th>
+            <th>product discription</th>
+            <th>price/item</th>
+            <th>qnt</th>
+            <th>total</th>
+        </tr>
+    </thead>
+<tbody>
+        
+<tr>
+    <td > <p>1</p></td>
+    <td><input type="text" name="product" id="product" class="databox product" />
+    </td>
+    <td><input type="number" id="price" class="databox price">
+    </td> 
+    <td>
+       <input type="number" id="qty" class="databox qty"/>
+    </td>
+    <td class="total">
+    
+    </td>
+    </tr>
+        
+    </tbody>
+    <tfoot>
+      <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total</td>
+      <td id ="total_amount"></td>
+      </tr>        
+  </tfoot>
+    
+    </table>
+    <br />
+    <hr /><br /><br />
+    <div>
+        <b style="float:left">Recivers signature</b>
+        <b style="float:right">Authority signature</b>
+    </div>
+
+ 
+</div>
+<!--this is navigation bar-->
+<div id='navigation'>
+    
+    
+    
+
+ 
+
+    
+    <div>
+            
+        <center>
+        <button id="addRow"> + </button>
+        
+        
+        <button id="store">store</button>
+        
+        <button id="removeRow"> - </button>
+        </center>
+    </div>
+   
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src={{ url_for('static', filename='js/js.js') }}></script>
+
+<script type="text/javascript" src={{ url_for('static', filename='js/store.js') }}></script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+ 
+  
+ 
+  <!--this script creates pdf-->
+  
+  <script >
+  
+    window.onload=function(){
+        document.getElementById('download').addEventListener("click",()=>{
+            const invoice = document.getElementById('content');
+            var opt={
+                margin:0,
+                filename:"invoice.pdf",
+                jsPDF:{
+                    unit:'in',format:'letter',orientation:'portrait'
+                }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+    }
+
+  </script>
+
+</html>

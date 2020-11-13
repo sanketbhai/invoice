@@ -169,8 +169,7 @@ def show_invoice():
         invo_no=int(request.args.get("num"))
         per=(request.args.get("user"))
         results=Invoice.query.filter(Invoice.user==per).filter(Invoice.invonum==invo_no).all()
-        print(results)
-        print(results[0])
+    
         product=[]
         price=[]
         quntity=[]

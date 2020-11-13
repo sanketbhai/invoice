@@ -12,7 +12,7 @@ $(document).ready(function(){
         });
     $('#removeRow').click(function(){
 
-        alert(rnum)
+        
         if (rnum>1) {
             --rnum;
             $('tbody tr:last').remove();
@@ -24,19 +24,20 @@ $(document).ready(function(){
        $('tbody').children().each(function(){ 
                 
                     
-                var r=$(this);
+                r=$(this);
                 
                 var t=r.find('.total').text();
                 
                 if (t!==NaN && t!==""){
                         
-                        
+                    
                     total_amount+=parseFloat(t);
                         
                     }
                 });
                 
-                $('#total_amount').text(total_amount);  
+                $('#total_amount').text(total_amount); 
+                
                     
         }
         

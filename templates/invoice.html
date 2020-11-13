@@ -21,6 +21,8 @@
             background-color: black;
             color: white;
             width: 40px;
+            margin: 15px;
+            
         }
         tr{
             height: 30px;
@@ -103,9 +105,9 @@
 <div id="uppernavigation" >
      <div style="float:right">
        <button onclick="window.print()">Print INVOICE</button>
-        <button id="download">download as pdf</button>
+        <button id="download">Download as pdf</button>
     </div>
-    <form action="/show_invoice" method="get" >
+    <form action="{{url_for("show_invoice")}}" method="get" >
       <input type="text" id="user" name="user" value="{{user}}" readonly >
       <button type="submit">show invoice</button>
     </form>

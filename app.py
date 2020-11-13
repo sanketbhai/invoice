@@ -70,7 +70,7 @@ def addtodb():
 		   	except:
 		   		return "username is taken try diffrent one"
 		   else:
-		   	return "not working"
+		   	return "username and password do not match"
 		
 		   	
 		   	

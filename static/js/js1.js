@@ -1,9 +1,10 @@
         
 $(document).ready(function(){
     
-        
+    
     $('#dab').click(function(){ 
-         
+        $('tbody tr').remove();
+    
         no=document.getElementById("num").value;
         
         

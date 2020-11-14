@@ -1,17 +1,20 @@
 <!DOCTYPE html>   
 <html>   
 <head>  
+
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title> Register </title>  
+ <link rel="icon" href="{{url_for('static',filename='img/logo1.png')}}">
 <style>   
 Body {  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
+  background-color:#840006;
+  color: white,  
 }  
 button {   
        background-color: #4CAF50;   
        width: 100%;  
-        color: orange;   
+        color:  #840006;   
         padding: 15px;   
         margin: 10px 0px;   
         border: none;   
@@ -40,13 +43,14 @@ button {
      
  .container {   
         padding: 25px;   
-        background-color: lightblue;  
+        background-color: #6B5242;  
     }   
 </style>   
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
-</head>    
+
+</head>  
+ <img src="{{url_for("static",filename="img/logo4.png")}}" alt="" style="width: 100%" />
 <body>    
-    <center> <h1>  Registor</h1> </center>   
+    <center> <h1 style="color:white" > Registor</h1> </center>   
     <form action="{{url_for("addtodb")}}" method="post">  
         <div class="container">   
             <label>Username : </label>   

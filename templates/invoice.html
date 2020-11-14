@@ -2,6 +2,7 @@
     
     
 <head>
+<link rel="icon" href="{{url_for('static',filename='img/logo1.png')}}">
     <!--<meta http-equiv="content-type" content="text/html; charset=utf-8" />-->
     <style>
         
@@ -17,13 +18,7 @@
             height: 35px;
             
         }
-        #user{
-            background-color: black;
-            color: white;
-            width: 40px;
-            margin: 15px;
-            
-        }
+
         tr{
             height: 30px;
             
@@ -57,14 +52,16 @@
         
         
         
-        input{
-            border: none;
-        }
+
         
         
         
         input{
             color: red;
+            border: none;
+            width: 100%;
+            
+            margin: 0px;
         }
         
         tfoot{
@@ -98,8 +95,16 @@
         button:hover {
             opacity: 0.7;
         }
+        #user{
+            background-color: black;
+            color: white;
+            margin: 15px;
+            font-size: 15px;
+            
+        }
+        
     </style>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    
 </head>
 <body>
     
@@ -109,8 +114,8 @@
         <button id="download">Download as pdf</button>
     </div>
     <form action="{{url_for("show_invoice")}}" method="get" >
-      <input type="text" id="user" name="user" value="{{user}}" readonly >
-      <button type="submit">show invoice</button>
+      <input type="text" id="user" name="user" value="{{user}}" readonly style="width : 50px">
+      <button type="submit" style="margin :10px">show invoice</button>
     </form>
    
 </div>
@@ -136,7 +141,7 @@
 <br />
 <br /> <br /><br /><br /><br /><hr /><br />
   <b>Invoice No. : </b><b id="invoice_no">{{data}}</b><br>
-  <b>Date : </b><input type="date" id="date"><br>
+  <b>Date : </b><input type="date" id="date" style="width:120px"><br>
 <br />
 
 
@@ -214,12 +219,12 @@
     <div>
             
         <center>
-        <button id="addRow"> + </button>
+        <button id="addRow" style="width :40px"> + </button>
         
         
-        <button id="store">store</button>
+        <button id="store" style="50px">store</button>
         
-        <button id="removeRow"> - </button>
+        <button id="removeRow" style="width:41px "> - </button>
         </center>
     </div>
    

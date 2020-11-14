@@ -68,7 +68,7 @@ def addtodb():
 		   		
 		   		return redirect("/signup")
 		   	except:
-		   		return "username is taken try diffrent one"
+		   		return "username is taken try diffrent one or the email is already registored"
 		   else:
 		   	return "username and password do not match"
 		

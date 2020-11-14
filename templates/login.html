@@ -3,15 +3,17 @@
 <head>  
 <meta name="viewport" content="width=device-width, initial-scale=1">  
 <title> Login Page </title>  
+<link rel="icon" href="{{url_for('static',filename='img/logo1.png')}}">
 <style>   
 Body {  
   font-family: Calibri, Helvetica, sans-serif;  
-  background-color: pink;  
+  background-color:#840006;
+  color: white,
 }  
 button {   
        background-color: #4CAF50;   
        width: 100%;  
-        color: orange;   
+        color: #840006;   
         padding: 15px;   
         margin: 10px 0px;   
         border: none;   
@@ -40,13 +42,14 @@ button {
      
  .container {   
         padding: 25px;   
-        background-color: lightblue;  
+        background-color: #6B5242;  
     }   
 </style>   
-<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
 </head>    
-<body>    
-    <center> <h1>  Login  </h1> </center> 
+<body>   
+    <img src="{{url_for("static",filename="img/logo4.png")}}" alt="" style="width: 100%" />
+    <center> <h1 style="color:white">  Login  </h1> </center> 
     </h1><h1>{{mess}}</h1>  
     <form action="{{url_for("signin")}}" method="post">  
         <div class="container">   

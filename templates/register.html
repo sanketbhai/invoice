@@ -50,7 +50,7 @@ button {
 </head>  
  <img src="{{url_for("static",filename="img/logo4.png")}}" alt="" style="width: 100%" />
 <body>    
-    <center> <h1 style="color:white" > Registor</h1> </center>   
+    <center> <h1 style="color:white" >Register</h1> </center>   
     <form action="{{url_for("addtodb")}}" method="post">  
         <div class="container">   
             <label>Username : </label>   
@@ -61,7 +61,7 @@ button {
             <input type="password" placeholder="Enter Password" name="password" required> 
              <label>Repeat Password : </label>   
             <input type="password" placeholder="Enter Password again" name="rpassword" required>  
-            <button type="submit" name="registor" value="registor">Registor</button>   
+            <button type="submit" name="registor" value="registor">Register</button>   
             <input type="checkbox" checked="checked"> Remember me   
             <a href="{{url_for("signup")}}"><button type="button" class="cancelbtn" name="registor" value="login"> Login</button>  </a>
             Forgot <a href="changepassword"> password? </a>   
